@@ -1,4 +1,4 @@
-https://travis-ci.org/pkjayk/parse-to-firebase-user-transfer.svg?branch=master
+<img src="https://travis-ci.org/pkjayk/parse-to-firebase-user-transfer.svg?branch=master">
 
 Start environment:
 
@@ -52,8 +52,3 @@ It should look something like this:
   }
 ]
 ```
-
-git filter-branch --index-filter \
-'git update-index --remove filename' <_User.json>..HEAD
-git push --force --verbose --dry-run
-git push --force
