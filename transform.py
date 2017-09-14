@@ -1,16 +1,21 @@
 import json
 import base64
+#import string_helper
+
 from pprint import pprint
 
 class transform:
 
-	def render(self, the_json):
-		return self.translate(the_json)
+	def render(self, the_json, pretty):
+		return self.translate(the_json, pretty)
 
-	def convert_to_json(self, the_json):
-		return json.dumps(the_json, sort_keys=True, indent=4, separators=(',', ': '))
+	def convert_to_json(self, the_json, pretty):
+		if pretty:
+			return json.dumps(the_json, sort_keys=True, indent=4, separators=(',', ': '))
+		else:
+			return json.dumps(the_json)
 
-	def translate(self, the_json):
+	def translate(self, the_json, pretty):
 		# first, decode the json and create as a dictionary
 		parse_json = self.decode_json(the_json)
 
@@ -20,14 +25,18 @@ class transform:
 		# id, email, display name(username), password hash
 		for user in parse_json:
 			firebase_user_dict = {}
-			firebase_user_dict['localId'] = user.get('_id')
-			firebase_user_dict['email'] = user.get('email')
-			firebase_user_dict['displayName'] = user.get('username')
-			firebase_user_dict['passwordHash'] = self.base64encode(user.get('_hashed_password'))
+			if user.get('_id'):
+				firebase_user_dict['localId'] = user.get('_id')
+			if user.get('email'):
+				firebase_user_dict['email'] = user.get('email')
+			if user.get('username'):
+				firebase_user_dict['displayName'] = user.get('username')
+			if user.get('_hashed_password'):
+				firebase_user_dict['passwordHash'] = self.base64encode(user.get('_hashed_password'))
 			firebase_json.append(firebase_user_dict)
 
 		pprint(firebase_json)
-		return self.convert_to_json(firebase_json)
+		return self.convert_to_json(firebase_json, pretty)
 
 	def decode_json(self, the_json):
 		decoded_json = ""

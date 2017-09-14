@@ -15,11 +15,11 @@ def render_json():
 	# 
 	if request.method == 'POST':
 		try:
-			firebase_json = convert.render(request.form.get('json'))
+			firebase_json = convert.render(request.form.get('json'), True)
 		except TypeError:
 			print 'Error'
 
-		return (firebase_json)
+		return ("<pre>" + firebase_json + "</pre>")
 	if request.method == 'GET':
 		return "TEST"
 

@@ -1,3 +1,5 @@
+https://travis-ci.org/pkjayk/parse-to-firebase-user-transfer.svg?branch=master
+
 Start environment:
 
 . venv/bin/activate
