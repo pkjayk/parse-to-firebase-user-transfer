@@ -12,7 +12,7 @@ Exit venv: $ deactivate
 
 
 
-<h1>DATA FORMAT:</h1>
+<h1>DATA FORMAT:</h1> d
 Your JSON must be an array of all mongo docs. Use --jsonArray flag when exporting from mongoDB. See https://docs.mongodb.com/v2.6/reference/program/mongoexport/#cmdoption-jsonarray.
 
 It should look something like this:
