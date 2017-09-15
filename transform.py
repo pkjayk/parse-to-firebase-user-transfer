@@ -6,16 +6,22 @@ from pprint import pprint
 
 class transform:
 
-	def render(self, the_json, pretty):
-		return self.translate(the_json, pretty)
+	# set default vars
+	pretty = False
 
-	def convert_to_json(self, the_json, pretty):
-		if pretty:
+	def __init__(self, pretty_print):
+		self.pretty = pretty_print
+
+	def render(self, the_json):
+		return self.translate(the_json)
+
+	def convert_to_json(self, the_json):
+		if self.pretty:
 			return json.dumps(the_json, sort_keys=True, indent=4, separators=(',', ': '))
 		else:
 			return json.dumps(the_json)
 
-	def translate(self, the_json, pretty):
+	def translate(self, the_json):
 		# first, decode the json and create as a dictionary
 		parse_json = self.decode_json(the_json)
 
@@ -36,7 +42,7 @@ class transform:
 			firebase_json.append(firebase_user_dict)
 
 		pprint(firebase_json)
-		return self.convert_to_json(firebase_json, pretty)
+		return self.convert_to_json(firebase_json)
 
 	def decode_json(self, the_json):
 		decoded_json = ""

@@ -3,7 +3,7 @@ import transform
 
 app = Flask(__name__)
 
-convert = transform.transform()
+convert = transform.transform(True)
 
 @app.route("/")
 def home(name=None):
@@ -15,7 +15,7 @@ def render_json():
 	# 
 	if request.method == 'POST':
 		try:
-			firebase_json = convert.render(request.form.get('json'), True)
+			firebase_json = convert.render(request.form.get('json'))
 		except TypeError:
 			print 'Error'
 
