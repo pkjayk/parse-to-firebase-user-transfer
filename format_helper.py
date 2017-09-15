@@ -1,6 +1,6 @@
 class format_helper:
 
-	def checkEmpty(input):
+	def check_empty(input):
 		if input:
 			return input
-	
+

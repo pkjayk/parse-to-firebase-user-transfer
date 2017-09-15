@@ -19,14 +19,13 @@ class transform:
 		if self.pretty:
 			return json.dumps(the_json, sort_keys=True, indent=4, separators=(',', ': '))
 		else:
-			return json.dumps(the_json)
+			return json.dumps(the_json, sort_keys=True)
 
 	def translate(self, the_json):
 		# first, decode the json and create as a dictionary
 		parse_json = self.decode_json(the_json)
 
 		firebase_json = []
-		value = None
 		# loop through each object, make sure to grab
 		# id, email, display name(username), password hash
 		for user in parse_json:
@@ -39,6 +38,7 @@ class transform:
 				firebase_user_dict['displayName'] = user.get('username')
 			if user.get('_hashed_password'):
 				firebase_user_dict['passwordHash'] = self.base64encode(user.get('_hashed_password'))
+
 			firebase_json.append(firebase_user_dict)
 
 		pprint(firebase_json)
