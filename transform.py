@@ -58,8 +58,9 @@ class transform:
 		encoded_string = ""
 		try:
 			encoded_string = base64.b64encode(string.encode())
+			output = encoded_string.decode("utf-8")
 		except TypeError as e:
 			print('Could not base64 encode hashed password')
 			print(e)
 
-		return (encoded_sting.decode("utf-8"))
+		return (output)
