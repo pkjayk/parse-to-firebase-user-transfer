@@ -31,11 +31,11 @@ class transform:
 		for user in parse_json:
 			firebase_user_dict = {}
 			if user.get('_id'):
-				firebase_user_dict['localId'] = str(user.get('_id')
+				firebase_user_dict['localId'] = user.get('_id')
 			if user.get('email'):
-				firebase_user_dict['email'] = str(user.get('email'))
+				firebase_user_dict['email'] = user.get('email')
 			if user.get('username'):
-				firebase_user_dict['displayName'] = str(user.get('username'))
+				firebase_user_dict['displayName'] = user.get('username')
 			if user.get('_hashed_password'):
 				firebase_user_dict['passwordHash'] = self.base64encode(user.get('_hashed_password'))
 
