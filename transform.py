@@ -62,4 +62,4 @@ class transform:
 			print('Could not base64 encode hashed password')
 			print(e)
 
-		return (str(encoded_string))
+		return (str(encoded_string, 'utf-8'))
