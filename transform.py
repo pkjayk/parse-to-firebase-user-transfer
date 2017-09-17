@@ -37,7 +37,7 @@ class transform:
 			if user.get('username'):
 				firebase_user_dict['displayName'] = str(user.get('username'))
 			if user.get('_hashed_password'):
-				firebase_user_dict['passwordHash'] = self.base64encode(user.get('_hashed_password').encode())
+				firebase_user_dict['passwordHash'] = self.base64encode(user.get('_hashed_password'))
 
 			firebase_json.append(firebase_user_dict)
 
