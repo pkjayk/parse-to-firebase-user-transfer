@@ -20,7 +20,5 @@ class TestTransformFunctions(unittest.TestCase):
     	json_expected = '[{"displayName": "jack", "email": "jack@jill.com", "localId": "123", "passwordHash": "MTIzNA=="}, {"displayName": "jill", "email": "jill@jack.com", "localId": "456", "passwordHash": "NTY3OA=="}]'
         self.assertEqual(json_object, json_expected)
 
-    def 
-
 if __name__ == '__main__':
     unittest.main()
