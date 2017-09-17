@@ -17,7 +17,7 @@ def render_json():
 		try:
 			firebase_json = convert.render(request.form.get('json'))
 		except TypeError:
-			print 'Error'
+			print('Error')
 
 		return ("<pre>" + firebase_json + "</pre>")
 	if request.method == 'GET':

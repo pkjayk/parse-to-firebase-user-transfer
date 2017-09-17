@@ -49,7 +49,7 @@ class transform:
 		try:
 			decoded_json = json.loads(the_json)
 		except ValueError:
-			print 'Decoding JSON has failed'
+			print('Decoding JSON has failed')
 
 		return (decoded_json)
 
@@ -59,6 +59,6 @@ class transform:
 		try:
 			encoded_string = base64.b64encode(string)
 		except TypeError:
-			print 'Could not base64 encode hashed password'
+			print('Could not base64 encode hashed password')
 
 		return (encoded_string)
