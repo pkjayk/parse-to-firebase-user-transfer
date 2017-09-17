@@ -1,1 +1,1 @@
-web: . venv/bin/activate;export FLASK_APP=main.py;flask run
+web: gunicorn manage:app
