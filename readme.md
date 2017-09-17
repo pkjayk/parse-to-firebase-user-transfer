@@ -1,4 +1,4 @@
-<img src="https://travis-ci.org/pkjayk/parse-to-firebase-user-transfer.svg?branch=master">
+<a href="https://travis-ci.org/pkjayk/parse-to-firebase-user-transfer"><img src="https://travis-ci.org/pkjayk/parse-to-firebase-user-transfer.svg?branch=master"></a>
 
 Start environment:
 
