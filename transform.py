@@ -56,9 +56,10 @@ class transform:
 
 	def base64encode(self, string):
 		encoded_string = ""
-		#try:
-		encoded_string = base64.b64encode(string)
-		#except TypeError:
-		#	print('Could not base64 encode hashed password')
+		try:
+			encoded_string = base64.b64encode(string)
+		except TypeError as e:
+			print('Could not base64 encode hashed password')
+			print(e)
 
 		return (encoded_string)
